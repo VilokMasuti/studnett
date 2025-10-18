@@ -10,7 +10,7 @@ const CustomDropdown = ({ label, field, options, placeholder = "Select", error }
 
   return (
  <div className="relative">
-      <label className="block text-sm font-semibold text-gray-800 mb-1">
+      <label className="block text-sm  font-sans font-semibold text-gray-800 mb-1">
         {label} <span className="text-red-500">*</span>
       </label>
 
@@ -18,8 +18,8 @@ const CustomDropdown = ({ label, field, options, placeholder = "Select", error }
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full px-4 py-2 border rounded-lg  bg-amber-50 font-sans text-left text-gray-800 font-medium flex justify-between items-center hover:border-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full px-4 py-3 border  border-black  rounded-lg  bg-amber-20 font-sans text-left text-gray-800 font-medium flex justify-between items-center  transition-all duration-200 focus:outline-black focus:ring-2 focus:ring-black ${
+          error ? "border-red-500" : "border-black/20 "
         }`}
       >
         <span>{field.value || placeholder}</span>
@@ -35,15 +35,15 @@ const CustomDropdown = ({ label, field, options, placeholder = "Select", error }
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 font-sans  bg-amber-50  border border-gray-300 rounded-lg shadow-2xl z-[9999] overflow-y-auto max-h-64">
+        <div className="absolute top-full left-0 right-0 mt-2 font-sans  bg-amber-100  border border-black rounded-lg shadow-2xl z-[9999] overflow-y-auto max-h-64">
           {options.map((option, index) => (
             <button
               key={option}
               type="button"
               onClick={() => handleSelect(option)}
               className={`w-full px-4 py-3 text-left font-medium transition-all duration-700 hover:bg-black hover:text-white ${
-                field.value === option ? "bg-gray-100 text-black border-l-4 border-black" : "text-gray-800"
-              } ${index !== options.length - 1 ? "border-b border-gray-100" : ""}`}
+                field.value === option ? "b text-black border-l-4 border-black" : "text-gray-800"
+              } ${index !== options.length - 1 ? " " : ""}`}
             >
               {option}
             </button>
